@@ -12,6 +12,8 @@
       width: 90%;
       color: grey;
       opacity: 0.5;
+      transition: color 1s ease-in;
+      transition: opacity 1s ease-in;
     }
 
     .spacer.active {

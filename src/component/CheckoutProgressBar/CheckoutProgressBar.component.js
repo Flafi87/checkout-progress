@@ -7,7 +7,7 @@ export const CheckoutProgressBar = ({ stepMap, checkoutStep }) => {
     const stepNames = ['Shipping', 'Review & Payments'];
     // console.log(url);
     // // const steps = [];
-    // console.log(stepMap);
+    console.log(stepMap);
     // const stepCount = (Object.keys(stepMap).length);
     // console.log(stepCount);
 
@@ -52,7 +52,20 @@ export const CheckoutProgressBar = ({ stepMap, checkoutStep }) => {
     } if (url === '/success') {
         return (
             <div className="progress-bar">
-                Congratulation for your purchase
+            <div className="top-bar">
+                <div className="spacer active" />
+                <div className="circle-container"><div className="circle active">1</div></div>
+                <div className="spacer active" />
+                <div className="circle-container"><div className="circle active">2</div></div>
+                <div className="spacer active" />
+            </div>
+            <div className="bottom-bar">
+                <div className="spacer" />
+                <div className="title">{ stepNames[0] }</div>
+                <div className="spacer" />
+                <div className="title">{ stepNames[1] }</div>
+                <div className="spacer" />
+            </div>
             </div>
         );
     }
