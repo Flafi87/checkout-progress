@@ -7,10 +7,16 @@ import './Checkout.override.style.scss';
 
 /** @namespace Cart_progress/Route/Checkout/Component/CheckoutComponent */
 export class CheckoutComponent extends SourceCheckout {
+    renderCheckoutProgressBar() {
+        return (
+        <CheckoutProgressBar stepMap={ this.stepMap } checkoutStep={ this.props.checkoutStep } />
+        );
+    }
+
     render() {
         return (
             <main block="Checkout">
-                <CheckoutProgressBar stepMap={ this.stepMap } checkoutStep={ this.props.checkoutStep } />
+                { this.renderCheckoutProgressBar() }
                 <ContentWrapper
                   wrapperMix={ { block: 'Checkout', elem: 'Wrapper' } }
                   label={ __('Checkout page') }
