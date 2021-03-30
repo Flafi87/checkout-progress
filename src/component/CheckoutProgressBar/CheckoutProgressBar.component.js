@@ -15,7 +15,7 @@ export const CheckoutProgressBar = ({ checkoutStep }) => {
         DETAILS_STEP: 'Success'
     };
 
-    if (checkoutStep === 'SHIPPING_STEP') {
+    if (checkoutStep === SHIPPING_STEP) {
         return (
         <div className="progress-bar">
             <div className="top-bar">
@@ -34,7 +34,7 @@ export const CheckoutProgressBar = ({ checkoutStep }) => {
             </div>
         </div>
         );
-    } if (checkoutStep === 'BILLING_STEP') {
+    } if (checkoutStep === BILLING_STEP) {
         return (
             <div className="progress-bar">
                 <div className="top-bar">
@@ -53,7 +53,7 @@ export const CheckoutProgressBar = ({ checkoutStep }) => {
                 </div>
             </div>
         );
-    } if (checkoutStep === 'DETAILS_STEP') {
+    } if (checkoutStep === DETAILS_STEP) {
         return (
             <div className="progress-bar">
             <div className="top-bar">
