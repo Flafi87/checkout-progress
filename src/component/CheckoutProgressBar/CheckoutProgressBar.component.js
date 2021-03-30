@@ -7,74 +7,31 @@ import {
     SHIPPING_STEP
 } from 'SourceRoute/Checkout/Checkout.config';
 
+import { BottomProgress, TopProgress } from './Progress.component';
+
 /** @namespace Cart_progress/Component/CheckoutProgressBar/Component/CheckoutProgressBar */
 export const CheckoutProgressBar = ({ checkoutStep }) => {
     const stepNames = {
-        SHIPPING_STEP: 'Shipping',
-        BILLING_STEP: 'Review & Payments',
-        DETAILS_STEP: 'Success'
+        SHIPPING_STEP: { name: 'Shipping', step: 1 },
+        BILLING_STEP: { name: 'Review & Payments', step: 2 },
+        DETAILS_STEP: { name: 'Success', step: 3 }
     };
+    const stepNamesArray = ['Shipping', 'Review & Payments', 'Success'];
 
-    if (checkoutStep === SHIPPING_STEP) {
-        return (
+    return (
         <div className="progress-bar">
             <div className="top-bar">
-                <div className="spacer active" />
-                <div className="circle-container"><div className="circle active">1</div></div>
-                <div className="spacer" />
-                <div className="circle-container"><div className="circle">2</div></div>
-                <div className="spacer" />
+                <TopProgress checkoutStep={ checkoutStep } stepNames={ stepNames } />
             </div>
             <div className="bottom-bar">
-                <div className="spacer" />
-                <div className="title active">{ stepNames.SHIPPING_STEP }</div>
-                <div className="spacer" />
-                <div className="title">{ stepNames.BILLING_STEP }</div>
-                <div className="spacer" />
+                <BottomProgress
+                  checkoutStep={ checkoutStep }
+                  stepNames={ stepNames }
+                  stepNamesArray={ stepNamesArray }
+                />
             </div>
         </div>
-        );
-    } if (checkoutStep === BILLING_STEP) {
-        return (
-            <div className="progress-bar">
-                <div className="top-bar">
-                    <div className="spacer active" />
-                    <div className="circle-container"><div className="circle active">1</div></div>
-                    <div className="spacer active" />
-                    <div className="circle-container"><div className="circle active">2</div></div>
-                    <div className="spacer" />
-                </div>
-                <div className="bottom-bar">
-                    <div className="spacer" />
-                    <div className="title active">{ stepNames.SHIPPING_STEP }</div>
-                    <div className="spacer" />
-                    <div className="title active">{ stepNames.BILLING_STEP }</div>
-                    <div className="spacer" />
-                </div>
-            </div>
-        );
-    } if (checkoutStep === DETAILS_STEP) {
-        return (
-            <div className="progress-bar">
-            <div className="top-bar">
-                <div className="spacer active" />
-                <div className="circle-container"><div className="circle active">1</div></div>
-                <div className="spacer active" />
-                <div className="circle-container"><div className="circle active">2</div></div>
-                <div className="spacer active" />
-            </div>
-            <div className="bottom-bar">
-                <div className="spacer" />
-                <div className="title">{ stepNames.SHIPPING_STEP }</div>
-                <div className="spacer" />
-                <div className="title">{ stepNames.BILLING_STEP }</div>
-                <div className="spacer" />
-            </div>
-            </div>
-        );
-    }
-
-    return null;
+    );
 };
 
 CheckoutProgressBar.propTypes = {
