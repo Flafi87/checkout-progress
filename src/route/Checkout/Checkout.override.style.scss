@@ -1,0 +1,56 @@
+.progress-bar {
+  animation-duration: 3s;
+  .top-bar {
+    width: 100%;
+    background-color: var(--breadcrumbs-background);
+    height: 50px;
+    display: flex;
+    .spacer {
+      top: 50%;
+      left: 0;
+      border-top: 3px solid;
+      width: 90%;
+      color: grey;
+      opacity: 0.5;
+    }
+
+    .spacer.active {
+      color: var(--primary-base-color);
+      opacity: 1;
+    }
+
+    .circle-container {
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 10px;
+      .circle {
+        color: black;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        top: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+        opacity: 0.5;
+      }
+      .circle.active {
+        background-color: var(--primary-base-color);
+        opacity: 1;
+      }
+    }
+  }
+  .bottom-bar {
+    width: 100%;
+    background-color: var(--breadcrumbs-background);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    .spacer {
+      width: 100%;
+    }
+    .title {
+    }
+  }
+}
